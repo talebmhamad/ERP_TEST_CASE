@@ -143,7 +143,9 @@ function exportCsv(){const all=[...S.map(x=>[x.id,'Workflow',x.day,x.title]),...
 const TK='golden-croissant-theme';
 function setTheme(t){document.documentElement.setAttribute('data-theme',t);$('themeBtn').textContent=t==='dark'?'☀ Light mode':'🌙 Dark mode'}
 function toggleTheme(){const t=document.documentElement.getAttribute('data-theme')==='dark'?'light':'dark';setTheme(t);try{localStorage.setItem(TK,t)}catch(e){}}
-(function(){let t=null;try{t=localStorage.getItem(TK)}catch(e){}if(t!=='light'&&t!=='dark')t='light';setTheme(t)})();
+(function(){
+    setTheme('light');
+})();
 let _pt;window.addEventListener('beforeprint',()=>{_pt=document.documentElement.getAttribute('data-theme');document.documentElement.setAttribute('data-theme','light')});
 window.addEventListener('afterprint',()=>{if(_pt)setTheme(_pt)});
 </script></body></html>
